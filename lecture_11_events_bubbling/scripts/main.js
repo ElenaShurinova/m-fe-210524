@@ -22,3 +22,120 @@ const testObject = {
     house: 9
   }
 }
+
+const bubblingBlock = document.querySelector('#bubblingBlock');
+bubblingBlock.addEventListener('click', (event) => {
+  if (event.target.nodeName === 'BUTTON' || event.target.nodeName === 'P') {
+    console.log('Clickd inside block!')
+  }
+});
+
+const bubblingBlock1 = document.querySelector('#bubblingBlock');
+
+// Добавляем обработчик события click на bubblingBlock
+bubblingBlock.addEventListener('click', (event) => {
+  // Проверяем, является ли целевой элемент кнопкой
+  if (event.target.nodeName === 'BUTTON') {
+    // Получаем текстовое содержимое кнопки
+    const buttonText = event.target.textContent;
+    // Выводим сообщение в консоль
+    console.log(`Кликнута кнопка ${buttonText}`);
+  }
+});
+
+// Используем querySelector для поиска элемента с id bubblingBlock
+const bubblingBlock2 = document.querySelector('#bubblingBlock');
+
+// Добавляем обработчик события click на bubblingBlock
+bubblingBlock.addEventListener('click', (event) => {
+  // Проверяем, является ли целевой элемент кнопкой
+  if (event.target.nodeName === 'BUTTON') {
+    // Получаем текстовое содержимое кнопки
+    const buttonText = event.target.textContent;
+    // Выводим сообщение в консоль
+    console.log(`Кликнута кнопка ${buttonText}`);
+  }
+  // Проверяем, является ли целевой элемент параграфом
+  else if (event.target.nodeName === 'P') {
+    // Выводим сообщение в консоль
+    console.log('Clicked on paragraph!');
+  }
+});
+
+// Используем querySelector для поиска элемента с id bubblingBlock
+const bubblingBlock3 = document.querySelector('#bubblingBlock');
+
+// Добавляем обработчик события click на bubblingBlock
+bubblingBlock.addEventListener('click', (event) => {
+  // Проверяем, является ли целевой элемент кнопкой
+  if (event.target.nodeName === 'BUTTON') {
+    // Получаем текстовое содержимое кнопки
+    const buttonText = event.target.textContent;
+    // Выводим сообщение в консоль
+    console.log(`Кликнута кнопка ${buttonText}`);
+  }
+  // Проверяем, является ли целевой элемент параграфом с классом simpleParagraph
+  else if (event.target.nodeName === 'P' && event.target.classList.contains('simpleParagraph')) {
+    // Выводим сообщение в консоль
+    console.log('Clicked on paragraph!');
+  }
+});
+
+
+// document.addEventListener('click', (event) => {
+//  console.log('Clicked on ${event.target.nodeName}`);
+// });
+
+
+const testInput1 = document.querySelector('#testInput');
+testInput.addEventListener('keydown', (event) => {
+  console.log(`Clicked on ${event.keyCode}`);
+});
+
+
+
+
+
+
+
+const testInput = document.querySelector('#testInput');
+
+ function validateInput (event){
+  if ([37, 39, 8].includes(event.keyCode)) return;
+
+  if(event.keyCode < 48 || event.keyCode > 57){
+    event.preventDefault()
+  }
+}
+testInput.addEventListener('keydown', validateInput)
+
+
+// Объект для хранения количества кликов
+const analytics = {
+  BUTTON: 0,
+  P: 0,
+  DIV: 0,
+  INPUT: 0
+};
+
+// Функция для обработки кликов
+function handleClick(event) {
+  const nodeName = event.target.nodeName;
+
+  // Увеличиваем счетчик в зависимости от типа узла
+  if (nodeName === 'BUTTON') {
+    analytics.BUTTON++;
+  } else if (nodeName === 'P') {
+    analytics.P++;
+  } else if (nodeName === 'DIV') {
+    analytics.DIV++;
+  } else if (nodeName === 'INPUT') {
+    analytics.INPUT++;
+  }
+
+  // Выводим текущее состояние счетчиков в консоль
+  console.log(analytics);
+}
+
+// Добавляем обработчик события click на документ
+document.addEventListener('click', handleClick);
